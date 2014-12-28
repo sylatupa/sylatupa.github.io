@@ -1,0 +1,10 @@
+<div class="infoTable"  ng-controller="data_controller" >
+  {{toDo.file}}
+  <div ng-repeat="element in toDo.list">
+    [{{$index + 1}}] 
+    NAME: {{element.Name}}
+    Note: {{element.Note}}
+  </div>
+
+</div>
+

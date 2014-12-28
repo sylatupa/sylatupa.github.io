@@ -1,0 +1,39 @@
+{
+"coord":{"lon":139,"lat":35},
+"sys":{"message":0.4591,"country":"JP","sunrise":1401564667,"sunset":1401616354},
+"weather":[
+{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01n"}
+],
+"base":"cmc stations",
+"main":{"temp":292.094,"temp_min":292.094,"temp_max":292.094,"pressure":984.5,"sea_level":1027.67,"grnd_level":984.5,"humidity":70},
+"wind":{"speed":2.35,"deg":322.5},
+"clouds":{"all":0},"dt":1401658208,"id":1851632,"name":"Shuzenji","cod":200}
+
+http://api.openweathermap.org/data/2.5/forecast/daily?lat=35&lon=139&mode=json&cnt=7&units=imperial
+http://openweathermap.org/img/w/02d.png
+{"cod":"200","message":0.0073,
+"city":{"id":1851632,"name":"Shuzenji",
+"coord":{"lon":138.933334,"lat":34.966671},
+"country":"JP",
+"population":0},
+"cnt":7,
+"list":[
+{"dt":1401674400,
+"temp":{"day":84.43,"min":61.12,"max":84.43,"night":61.12,"eve":79.34,"morn":65.17},"pressure":933.05,"humidity":46,
+"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"ø"}],"speed":2.01,"deg":152,"clouds":24},
+{"dt":1401760800,
+"temp":{"day":79.34,"min":58.91,"max":79.34,"night":58.91,"eve":74.77,"morn":62.65},"pressure":932.44,"humidity":50,
+"weather":[{"id":800,"main":"Clear","description":"sky is clear","icon":"02d"}],"speed":2.18,"deg":166,"clouds":8},
+{"dt":1401847200,
+"temp":{"day":73.9,"min":60.42,"max":73.9,"night":60.66,"eve":67.24,"morn":60.42},"pressure":931.35,"humidity":54,
+"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"speed":2.18,"deg":136,"clouds":88},
+{"dt":1401933600,
+"temp":{"day":66.09,"min":53.76,"max":66.09,"night":53.76,"eve":62.71,"morn":58.28},"pressure":929.4,"humidity":53,
+"weather":[{"id":501,"main":"Rain","description":"moderate rain","icon":"10d"}],"speed":2.1,"deg":85,"clouds":92,"rain":9},
+{"dt":1402020000,
+"temp":{"day":58.6,"min":53.11,"max":60.31,"night":58.19,"eve":59.18,"morn":53.11},"pressure":927.61,"humidity":100,
+"weather":[{"id":502,"main":"Rain","description":"heavy intensity rain","icon":"10d"}],"speed":2.07,"deg":48,"clouds":92,"rain":13},
+{"dt":1402106400,"temp":{"day":66.51,"min":62.83,"max":71.49,"night":67.32,"eve":71.49,"morn":62.83},"pressure":961.15,"humidity":0,
+"weather":[{"id":503,"main":"Rain","description":"very heavy rain","icon":"10d"}],"speed":2.18,"deg":35,"clouds":99,"rain":49.64},
+{"dt":1402192800,"temp":{"day":70.29,"min":67.12,"max":75.22,"night":67.78,"eve":75.22,"morn":67.12},"pressure":962.77,"humidity":0,
+"weather":[{"id":501,"main":"Rain","description":"moderate rain","icon":"10d"}],"speed":2.59,"deg":92,"clouds":90,"rain":10.07}]}

@@ -1,0 +1,74 @@
+﻿<!--<body onload="init();" class="claro">-->
+  <!--      <body onload="init();">  -->
+    <div id="myMap" class="map" ng-controller="map_controller"></div>
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h3 class="panel-title">Draw</h3></div>
+      <div class="panel-body"><div id="draw" Title="Draw">
+	  <div class="btn-toolbar">
+	    <div class="btn-group">
+	      <button onclick="locate();" class="btn btn-default"  dojotype="dijit.form.Button">Locate Place: </button>		  
+	      <input type="text" class="btn btn-default"  id="address" value="Enter Address" />
+
+	      <button class="btn btn-default"  data-dojo-type="dijit.form.Button" onclick="toolbar.activate(esri.toolbars.Draw.POINT);map.hideZoomSlider();"
+		data-dojo-props="onClick:function(){toolbar.activate(esri.toolbars.Draw.POINT);map.hideZoomSlider();}">
+		Point</button>
+	      <button class="btn btn-default"  data-dojo-type="dijit.form.Button" onclick="toolbar.activate(esri.toolbars.Draw.MULTI_POINT);map.hideZoomSlider();"
+		data-dojo-props="onClick:function(){toolbar.activate(esri.toolbars.Draw.MULTI_POINT);map.hideZoomSlider();}">
+		Multipoint</button>
+	      <button class="btn btn-default"  data-dojo-type="dijit.form.Button" onclick="toolbar.activate(esri.toolbars.Draw.POLYLINE);map.hideZoomSlider();"
+		data-dojo-props="onClick:function(){toolbar.activate(esri.toolbars.Draw.POLYLINE);map.hideZoomSlider();}">
+		Polyline</button>
+	      <button class="btn btn-default"  data-dojo-type="dijit.form.Button" onclick="toolbar.activate(esri.toolbars.Draw.POLYGON);map.hideZoomSlider();"
+		data-dojo-props="onClick:function(){toolbar.activate(esri.toolbars.Draw.POLYGON);map.hideZoomSlider();}">
+		Polygon</button>
+	      <button class="btn btn-default"  data-dojo-type="dijit.form.Button" onclick="toolbar.deactivate();map.showZoomSlider();"
+		data-dojo-props="onClick:function(){toolbar.deactivate();map.showZoomSlider();}">
+		Quit Drawing</button>
+	      <textarea class="btn btn-default"  id="textBoxGeometry" name="textBoxGeometry"></textarea>
+	      <!--		<div id="currentextent"> </div> -->
+
+	    </div>  
+	  </div>
+	</div>
+      </div>
+      <div class="panel panel-primary ">
+	<div class="panel-heading"><h3 class="panel-title">Static Layers</h3></div>
+	<div class="panel-body">
+	</div>
+      </div>
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon">
+	<label class="label label-success"><input id="{{layers.id}}" type="checkbox" onchange="addData(this)">{{layers.title}}</label>
+      </span>
+      <input type="text" class="form-control">
+    </div><!-- /input-group -->
+  </div>
+
+  <div class="panel panel-primary ">
+    <div class="panel-heading"><h3 class="panel-title">Basemaps</h3></div>
+    <div class="panel-body">
+      <div id="basemaps" Title="Basemaps">
+	<div id="basemapGallery">
+	</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary ">
+    <div class="panel-heading"><h3 class="panel-title">Results</h3></div>
+    <div class="panel-body">
+      <div id="results" Title="Results">
+	<div id="resultsdiv"> </div>
+	<!-- <span id="labelMapExtent"></span> -->
+	<span id="labelMapCoords"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    window.onload =  dojo.addOnLoad(init);
+    </script>
+    <link rel="stylesheet" href="./style/esri.css">
+
+    <link rel="stylesheet" href="./style/bootstrap_map.css">

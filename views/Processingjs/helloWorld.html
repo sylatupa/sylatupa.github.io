@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello Web - Processing.js Test</title>
+    <script src="./script/processing-1.4.1.js"></script>
+    <style>
+      body {text-align:center;}
+      #presentDiv{
+	border: 5px red dashed;
+	width:auto;
+	height:auto;
+	float:left;
+      }
+      #presents {
+
+      }
+      #easing{
+	margin:10px;
+	background: #000;
+	border: 2px solid black;
+      }
+      #canvasClock {
+	float:right;
+      }
+      #centerDiv {
+	margin: 0 auto;
+	width:966px;
+      }	  
+    </style>
+  </head>
+  <body >
+    <h1>Processing.js Test</h1>
+    <div id="centerDiv">
+      <div id="presentDiv"> 
+	<canvas id="presents"></canvas>
+      </div>
+
+      <canvas id="canvasClock"></canvas><br>  
+      <canvas id="easing" data-processing-sources="easing.pde"></canvas>
+    </div>
+  </body>
+  <script src="./script/canvasClock.js"></script>
+    <script src="./script/helloPresentRace.js"></script> 
+</html>
+
+

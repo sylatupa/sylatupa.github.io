@@ -1,0 +1,27 @@
+<div class="row" ng-app="split_module">
+  <div class="large-6 large-offset-3">
+    <div class="jumbotron">
+      <h1 ng-bind-html="renderHtml(report.title)">
+	<!--	{{report.title}} -->
+      </h1>
+      <h3>#{{post_id}}</h3>
+    </div>
+    <div class="row">
+      <div ng-repeat="item in report.post | filter:post_id track by $index">
+	<div class="col-6 col-sm-6 col-lg-12 img-thumbnail">
+	  <h2>{{item.title}}</h2>
+	  #{{item.id}} <br> <p ng-bind-html="renderHtml(item.description)"></p>  <img class="favicon" src="model/home/images/favicon.png"/> 
+	  <div ng-repeat="img in item.image  track by $index">
+	    <img class="img-thumbnail" src="{{img}}">
+	  </div>
+	  <br>
+	  <div  style="display:inline-block" >
+	  Links to related Resources:
+	  <br>
+	  <div ng-repeat="url in item.url  track by $index">
+	    <a href="{{url.href}}">{{url.title}}</a>
+	  </div>
+	  </div>
+	</div>
+
+      </div>
