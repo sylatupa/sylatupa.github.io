@@ -15,25 +15,24 @@
 	    <a role="button"   href="#/detail?post={{item.id}}">
 	      <h2 class="post_title">{{item.title}}</h2>
 	    </a>
-	    #{{item.id}}
-	    <a class="btn btn-default btg-lg " role="button"   href="#/detail?post={{item.id}}">
+
+	    <a ng-hide="!item.description.length"  class="btn btn-default" style="max-width:50%"  role="button"    href="#/detail?post={{item.id}}">
+	      <img  ng-hide="!item.image[0].length" class="img-thumbnail img-responsive" src="{{item.image[0]}}">
+	    </a>
+	    <a ng-hide="item.description.length"  class="btn btn-default" style="max-width:100%"  role="button"    href="#/detail?post={{item.id}}">
 	      <img  ng-hide="!item.image[0].length" class="img-thumbnail img-responsive" src="{{item.image[0]}}">
 	    </a>
 	  </div>
+	  <br>
 	  <p ng-bind-html="renderHtml(item.description)"> </p>  
-	  <!--
-	    <a class="btn btn-default btg-lg glyphicon favicon " role="button"   href="#/detail?post={{item.id}}">
-	      <img  title="See Details" class="favicon" src="model/portfolio/images/Document2.png">
-	    </a>
-	    -->
+	  <div ng-hide="!item.id.length" >
+	    #{{item.id}}
+	  </div>
 	  </p>
-
-
 	</div>
-
-	</p>
-
       </div>
     </div>
 
   </div>
+
+</div>
