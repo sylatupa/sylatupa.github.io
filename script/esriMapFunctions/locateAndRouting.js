@@ -42,8 +42,7 @@ function initAddressLocater() {
 function zoomTo(West_Lon, South_Lat, East_Lon, North_Lat) {
   console.log('west_lon: ' +West_Lon + ', south_lat: ' + South_Lat + ', East_Lon: ' + East_Lon + ', North_Lat: ' + North_Lat);
   var esriExtent = new esri.geometry.Extent(West_Lon, South_Lat, East_Lon, North_Lat, new esri.SpatialReference({wkid: 4326}));
-
-  map.setExtent(esri.geometry.geographicToWebMercator(esriExtent));
+   map.setExtent(esri.geometry.geographicToWebMercator(esriExtent));
 }
 function showResults(results) {
   var rdiv = dojo.byId("resultsdiv");

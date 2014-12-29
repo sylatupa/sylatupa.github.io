@@ -477,7 +477,13 @@ table.myWidgetTable, tr.myWidgetTable, th.myWidgetTable {
   border: 1px solid cornflowerblue;
   border-collapse: collapse;
 }
+.panel {
+ width:35%;
+ margin: 10px;
+ width:31%;
+ float:left;
 
+}
 .ui-tabs-panel {
   height: 100% !important;
   padding: 0em !important;

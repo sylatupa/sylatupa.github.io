@@ -59,7 +59,9 @@ $links =[ {class:'home',data:{ name: 'Home', url: '#/home'}}
 /*,{class:'data',data:{ name: 'Data', url: '#/data'}}*/
 /*,{class:'projects',data:{ name: 'Projects', url: '#/projects'}}*/
 ,{class:'map',data:{ name: 'Map', url: '#map'}}
-,{class:'chakra_form',data:{ name: 'Chakra Form', url: '#/chakra_form'}}];
+,{class:'chakra_form',data:{ name: 'Chakra Form', url: '#/chakra_form'}}
+,{class:'project_log',data:{ name: 'Log', url: '#/project_log'}}
+];
 
 // register the routes
 // // please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
@@ -98,6 +100,10 @@ controller: 'report_controller'
 })
 $routeProvider.when('/chakra_form', {
 templateUrl: './views/chakra_form.html',
+controller: 'report_controller'
+})
+$routeProvider.when('/project_log', {
+templateUrl: './views/project_log.html',
 controller: 'report_controller'
 })
 $routeProvider.when('/detail?post', {
@@ -196,7 +202,6 @@ app.controller("detail_controller", function($scope, AuthenticationService, $rou
       });
 
     responsePromise.error(function(data, status, headers, config) { alert("portfolio failed.");  });
-    //    $scope.iframe = $sce.trustAsHtml($scope.report.iframe);
     $scope.renderHtml = function(html_code)
     {
     return $sce.trustAsHtml(html_code);
@@ -206,15 +211,21 @@ app.controller("detail_controller", function($scope, AuthenticationService, $rou
     }); 
 var Sound_Scape;
 app.controller("map_controller", function($scope, AuthenticationService, $http) {
-    $scope.layers = {id:"nature", title:"Nature Sounds"}
-
     $scope.report = ""
+    $scope.layers = [{id:"nature", title:"Nature Sounds"}, {id:"living_classroom", title:"Living Classroom"}];
     var responsePromise = $http.get(static_data['nature_sounds'].src);
     responsePromise.success(function(data, status, headers, config) { 
-      Sound_Scape = JSON.parse(data);
-      //      console.log($sce.trustAsHtml($scope.report.post[2]));
-      console.log(data); });
+      Sound_Scape = data.sound_scape;
+      });
     responsePromise.error(function(data, status, headers, config) { alert("nature sounds failed.");  });
+    var responsePromise = $http.get(static_data['living_classroom'].src);
+    responsePromise.success(function(data, status, headers, config) { 
+      living_classroom = data.living_classroom;
+      });
+    responsePromise.error(function(data, status, headers, config) { alert("living_classroom failed.");  });
+
+
+    // hmmm? 
     $scope.renderHtml = function(html_code)
     {
     return $sce.trustAsHtml(html_code);
@@ -244,9 +255,9 @@ app.controller("HomeController", function($scope, AuthenticationService, $http) 
     };
     });
 
-    var latitude = null;
-    var longitude = null;
-    var accuracy = null;
+var latitude = null;
+var longitude = null;
+var accuracy = null;
 app.controller("Weather", function($scope, AuthenticationService, $http){
 
     navigator.geolocation.getCurrentPosition(GetLocation);
@@ -255,7 +266,7 @@ app.controller("Weather", function($scope, AuthenticationService, $http){
     longitude = location.coords.longitude;
     accuracy = location.coords.accuracy;
     }
-locationTimeout = setTimeout( function(){setWeather($scope, $http);} , 5000 );	
+    locationTimeout = setTimeout( function(){setWeather($scope, $http);} , 5000 );	
     }); 
 
 function setWeather($scope, $http) {
