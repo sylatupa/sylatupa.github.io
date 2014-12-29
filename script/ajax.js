@@ -92,6 +92,7 @@ function setCoordinate() {
     var g = 255;
     var b = 0;
     var symbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE, 5, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([r, g, b, 0.5]), 10), new dojo.Color([r, g, b, 0.9]));
+    console.log(coordinate);
     coordinate = coordinate.split(" ");
     var x = coordinate[1];
     var y = coordinate[2];

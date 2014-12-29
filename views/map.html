@@ -1,7 +1,7 @@
 ﻿<!--<body onload="init();" class="claro">-->
   <!--      <body onload="init();">  -->
     <div id="myMap" class="map" ng-controller="map_controller"></div>
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
       <div class="panel-heading"><h3 class="panel-title">Draw</h3></div>
       <div class="panel-body"><div id="draw" Title="Draw">
 	  <div class="btn-toolbar">
@@ -31,30 +31,22 @@
 	  </div>
 	</div>
       </div>
-      <div class="panel panel-primary ">
+    </div>
+      <div class="panel panel-default ">
 	<div class="panel-heading"><h3 class="panel-title">Static Layers</h3></div>
 	<div class="panel-body">
-	</div>
-      </div>
     </div>
     <div class="input-group">
-      <span class="input-group-addon">
-	<label class="label label-success"><input id="{{layers.id}}" type="checkbox" onchange="addData(this)">{{layers.title}}</label>
-      </span>
-      <input type="text" class="form-control">
+        <div ng-repeat="item in layers track by $index">
+<input id="{{item.id}}" type="checkbox" onchange="addData(this)">
+	<label class="label label-success">{{item.title}}</label>
+
+      <!--      <input type="text" class="form-control"> -->
     </div><!-- /input-group -->
   </div>
-
-  <div class="panel panel-primary ">
-    <div class="panel-heading"><h3 class="panel-title">Basemaps</h3></div>
-    <div class="panel-body">
-      <div id="basemaps" Title="Basemaps">
-	<div id="basemapGallery">
-	</div>
-      </div>
     </div>
-  </div>
-  <div class="panel panel-primary ">
+
+  <div class="panel panel-default ">
     <div class="panel-heading"><h3 class="panel-title">Results</h3></div>
     <div class="panel-body">
       <div id="results" Title="Results">
@@ -65,7 +57,15 @@
 
     </div>
   </div>
-
+  <div style="width:100%" class="panel panel-default ">
+    <div class="panel-heading"><h3 class="panel-title">Basemaps</h3></div>
+    <div class="panel-body">
+      <div id="basemaps" Title="Basemaps">
+	<div id="basemapGallery">
+	</div>
+      </div>
+    </div>
+  </div>
   <script type="text/javascript">
     window.onload =  dojo.addOnLoad(init);
     </script>

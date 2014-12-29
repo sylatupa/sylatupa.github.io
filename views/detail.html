@@ -8,17 +8,27 @@
     </div>
     <div class="row">
       <div ng-repeat="item in report.post | filter:post_id track by $index">
+	
+
+
+
 	<div class="col-6 col-sm-6 col-lg-12 img-thumbnail">
 	  <h2>{{item.title}}</h2>
-	  #{{item.id}} <br> <p ng-bind-html="renderHtml(item.description)"></p>  <img class="favicon" src="model/home/images/favicon.png"/> 
+
+
+	  <div class="context">
+	  
+	  #{{item.id}} <br> <p ng-bind-html="renderHtml(item.description)"> </p>  <img class="favicon" src="model/home/images/favicon.png"/> 
 	  <div ng-repeat="img in item.image  track by $index">
-	    <img class="img-thumbnail" src="{{img}}">
+	    <img class="img-thumbnail" style="float:none" src="{{img}}">
 	  </div>
+	</div>
 	  <br>
-	  <div  style="display:inline-block" >
+
+	  <div  style="display:inline-block"  ng-hide="!item.url[0].length" >
 	  Links to related Resources:
 	  <br>
-	  <div ng-repeat="url in item.url  track by $index">
+	  <div ng-repeat="url in item.url  track by $index"  ng-hide="!item.url[0].length">
 	    <a href="{{url.href}}">{{url.title}}</a>
 	  </div>
 	  </div>

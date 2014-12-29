@@ -2,7 +2,7 @@
 
 <body>
 
-  <div class="panel panel-primary " ng-controller="Weather">
+  <div class="panel panel-primary " ng-controller="Weather"  ng-hide="!weather.list.length">
     <div class="panel-heading">
       <h3 class="panel-title">{{weather.city.name}}, {{weather.city.country}} 7 Day Weather</h3>
     </div>
