@@ -238,15 +238,7 @@
       "./model/portfolio/images/yoga_bag (8).jpg"
 	]
     }
-,
-    {
-      "id": "free_parking_for_yoga",
-      "title": "Where's the free parking for Love Life Yoga Studio",
-      "description": "Professional maps for important subjects like transportation and the environment can be more about the data and the accuracy of the data than the narrative of the information and the culture of the audience. I voluntaraly made this Free Parking For Yoga map that shows where to park and walk to get to Love Life Yoga Studio",
-      "image": [
-      "./model/portfolio/images/LoveLifeMap.png"
-	]
-    }
+
 
   ]
 }

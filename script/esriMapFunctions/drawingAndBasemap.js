@@ -82,33 +82,6 @@ function addToMap(geometry) {
   map.showZoomSlider();
   //toolbar.deactivate();
 }
-
-var geographic;
-var geom;
-function addLineToMap(geometry) {
-  geometry;
-  //var symbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE, 10, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 0, 0]), 1), new dojo.Color([0, 0, 255, .88]));
-  var symbol = new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([22, 100, 255]), 5);
-  for (i = 0; i < geometry.features.length; i++) {
-    var template = new esri.InfoTemplate();
-    var line = new esri.geometry.Polyline(geometry.features[i].geometry.paths, geometry);
-      graphic = new esri.Graphic(line, symbol);
-      template.setTitle(geometry.features[i].attributes["NAME"]);
-   //template.setTitle("<b>"+title+" 	</b>");
-     template.setContent("Length: " + geometry.features[i].attributes["LENGTH"] );
-
-
-    graphic.setInfoTemplate(template);
-    //  map.graphics.add(geographic);
-
-//    map.graphics.add(new esri.Graphic(line, symbol));
-    map.graphics.add(graphic);
-
-    
-  }
-  map.showZoomSlider();
-  //toolbar.deactivate();
-}
 var graphic
 function addPin() {
   var symbol = new esri.symbol.SimpleMarkerSymbol(esri.symbol.SimpleMarkerSymbol.STYLE_SQUARE, 10, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([255, 0, 0]), 1), new dojo.Color([0, 255, 0, 0.25]));
@@ -120,9 +93,9 @@ function addPin() {
 function addData(element) {
 
   if (document.getElementById(element.id).checked) {
-    console.log("Adding Map Layers");
-    console.log(element);
 
+    console.log("Adding SoundScape Data");
+    console.log(element);
     Sound_Scape.forEach(function(entry){
 	setPoint(entry);
 	}
@@ -132,10 +105,7 @@ function addData(element) {
 	setPoint2(entry);
 	}
 	);
-    // major_arizona_rivers.features.forEach(function(entry){
-    addLineToMap(major_arizona_rivers);
-    //	}
-    //	);
+
   } else {
     map.graphics.clear()
   }
@@ -146,16 +116,25 @@ function setPoint2(entry) {
   var yCoord = entry['x'];
   var title = entry['Living Classroom Description'] 
     var description = [
+    //entry["ID"],
+    //entry["Institution"],
+    //    entry["School City"] ,
+    //entry["School State"],
+
     entry["Living Classroom Water Body"],
     ", ",
     entry["Living classroom State"],
     "<br>",    
+    //    entry["x"],
+    //    entry["y"],
     "<a href='"  ,
     entry["GeoHack"],
     "'>",
     entry['Living Classroom Description'] ,
     "</a>",
     "<br>",    
+    //entry["Administrators & Teachers"],
+    //entry["Teacher"],
     entry["Demographics"]
       ].join('\n');
 
@@ -191,6 +170,7 @@ function setPoint(entry) {
   graphic.setInfoTemplate(template);
   map.graphics.add(graphic);
 }
+
 
 function createBasemapGallery() {
   var basemapGallery = new esri.dijit.BasemapGallery({

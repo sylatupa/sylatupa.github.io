@@ -1,0 +1,41 @@
+<div class="row" ng-app="split_module">
+  <div class="large-6 large-offset-3">
+    <div class="jumbotron">
+      <h1 ng-bind-html="renderHtml(report.title)">
+	<!--	{{report.title}} -->
+      </h1>
+      <p ng-bind-html="renderHtml(report.description, 'h1')">
+      <!-- {{report.description}} -->
+      </p>
+
+      <!--<img class="favicon" src="model/home/images/favicon.png">	-->
+
+    </div>
+    <div class="row">
+      <div ng-repeat="item in report.post track by $index">
+	<div class="col-6 col-sm-6 col-lg-6 img-thumbnail">
+	  <p>
+	  <h2>{{item.title}}</h2>
+	  <h3 class="favicon">#{{item.id}}</h3>
+	  <a class="btn btn-default btg-lg glyphicon " role="button"   href="#/detail?post={{item.id}}"><img  title="See Details" class="favicon" src="model/portfolio/images/Document2.png"></a> 
+	  <hr>
+	  <p ng-bind-html="renderHtml(item.description)"> </p>  
+	  <div  ng-repeat="url in item.url  track by $index ">
+	    <p ><a href="{{url.href}}">{{url.title}}</a>
+
+	    </p>
+
+
+	  </div>
+
+	  <img  ng-hide="!item.image[0].length" class="img-thumbnail img-responsive" src="{{item.image[0]}}">
+	  </p>
+
+	</div>
+      </div>
+
+	
+			<div  ng-include="templates['presents'].url"></div>
+
+
+    </div>

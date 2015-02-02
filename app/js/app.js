@@ -7,7 +7,7 @@ var app = angular.module("app", ['ngRoute'])
 // please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
 // for documentation
 var pages= 
-[ { 
+{"portfolio" : { 
 id:"portfolio",
    title:"Portfolio",
    description:"Check me out!",
@@ -16,10 +16,9 @@ id:"portfolio",
    is_active:true,
    templateUrl: './views/report.html',
    controller: 'report_controller',
-   page_path:'/portfolio',
-   order: '2'
-},
-{
+   page_path:'/portfolio'
+	       },
+  "about" :  {
 id:"about",
    title:'About',
    description:'description',
@@ -28,10 +27,9 @@ id:"about",
    is_active:true,
    page_path: '/about',
    templateUrl: './views/report.html',
-   controller: 'report_controller',
-   order:'3'
-},
-{
+   controller: 'report_controller'
+  },
+  "map" :  {
 id:"map",
    title:'Map',
    description:'Mapping data that interests me.',
@@ -41,32 +39,29 @@ id:"map",
    is_active:true,
    page_path:     '/map', 
    templateUrl: './views/map.html',
-   controller: 'map_controller',
-   order:'4'
-},  
-{
+   controller: 'map_controller'
+  },  
+  "chakra_form" : {
 id:"chakra_form",
-   title:'Health Survey',
-   description:'Thank you for your interest in the <h3>Living Being (LB) Survey</h3>. I am collecting information about the emotional, spirtual, and physical welfare of you; soon, I will share in what I leearn from your experience.',
+   title:'Chakra Form',
+   description:'chakra_form',
    url:'#/chakra_form',
    controller:'report_controller',
    is_active:true,
    page_path:'/chakra_form', 
    templateUrl: './views/chakra_form.html',
-   order:'5'
-},
-{  
+  },
+  "log": {  
 id:"log",
-   title:'Logging',
+   title:'Log',
    description:'Log data that interests me.',
    url:'#project_log',
    page_path:    '/project_log', 
    is_active:true,
    templateUrl: './views/project_log.html',
-   controller: 'report_controller',
-   order:'99'
-} ,
-{ 
+   controller: 'report_controller'
+  } ,
+"home" : { 
 id:"home",
    title:"E-Ekos: An Electronic Ecosystem",
    description:'description',
@@ -75,65 +70,38 @@ id:"home",
    is_active:true,
    templateUrl: './views/report.html',
    controller: 'report_controller',
-   page_path: '/home',
-   order:'1'
-}, 
-{ 
-id:"politics",
-   title:"Politics",
-   description:'description',
-   src:"./model/politics/politics.js",
-   url:'#politics',
-   is_active:true,
-   templateUrl: './views/report.html',
-   controller: 'report_controller',
-   page_path: '/politics',
-   order:'6'
-},
-{ 
-id:"ion",
-   title:"Web Sampler",
-   description:'description',
-   //src:"./model/politics/politics.js",
-   url:'#ion',
-   is_active:true,
-   templateUrl: './views/ion.html',
-   controller: 'report_controller',
-   page_path: '/ion',
-   order:'6'
-}
-
-/*,  
+   page_path: '/home'
+}/*,  
   "login":{
 id:"login",
-title:'Login',
-description:'Login.',
-url:'#login',
-controller:'LoginController',
-templateUrl: './views/login.html',
-is_active:false,
-page_path: '/login'
-},
-"impress":{
+   title:'Login',
+   description:'Login.',
+   url:'#login',
+   controller:'LoginController',
+   templateUrl: './views/login.html',
+   is_active:false,
+   page_path: '/login'
+  },
+  "impress":{
 id:"impress",
-title:'Impress',
-description:'impress.',
-url:'#impress',
-controller:'impress_controller',
-templateUrl: './views/impress.html',
-is_active:false
-} ,
-"projects" :  {
+   title:'Impress',
+   description:'impress.',
+   url:'#impress',
+   controller:'impress_controller',
+   templateUrl: './views/impress.html',
+   is_active:false
+  } ,
+  "projects" :  {
 id:"projects",
-title:'Projects',
-description:'projects im developing',
-src:"./model/projects/projects.js",
-url:'#projects',
-controller:'report_controller',
-is_active:false,
-page_path:'/projects'
-} */
-];
+   title:'Projects',
+   description:'projects im developing',
+   src:"./model/projects/projects.js",
+   url:'#projects',
+   controller:'report_controller',
+   is_active:false,
+   page_path:'/projects'
+  } */
+}
 // register the routes
 // // please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
 // for documentation
@@ -157,18 +125,13 @@ id:"nature_sound",
 id:"living_classroom", 
    src:"./model/collins/living_classroom.js"
   }
-  ,
-    "major_arizona_rivers" :  {
-id:"major_arizona_rivers", 
-   src:"./model/major_arizona_rivers_wgs_84.json"
-    }
 }
 // These are all the little widgets that are used on the page !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! **********
-$templates = {'todo':{ name: 'todo.html', url: './views/templates/todo.html'},
-  'weather': { name: 'weather.html', url: './views/templates/weather.html'},
-  'presents': { name: 'presents.html', url: './views/templates/presents.html'},
-  'clock': { name: 'template1.html', url: './views/templates/clock.html'},
-  'external_links': { name: 'external_links.html', url: './views/templates/external_links.html'},
+$templates = {'todo':{ name: 'todo.html', url: './views/todo.html'},
+  'weather': { name: 'weather.html', url: './views/weather.html'},
+  'presents': { name: 'presents.html', url: './views/presents.html'},
+  'clock': { name: 'template1.html', url: './views/clock.html'},
+  'external_links': { name: 'external_links.html', url: './views/external_links.html'},
   'navigation': { name: 'navbar.html', url: './views/navbar.html'}};
 
 //var navList = angular.module('navList', []); 
@@ -176,11 +139,11 @@ $templates = {'todo':{ name: 'todo.html', url: './views/templates/todo.html'},
 app.controller("navigation", function($scope, AuthenticationService) {
     $scope.links = pages; 	
 
-    $scope.filterFunction = function(element) {
-    console.log(element);
-    return element.is_active.match('true') ? true : false;
-    };
-
+$scope.filterFunction = function(element) {
+console.log(element.is_active);
+  return element.is_active.match('true') ? true : false;
+};
+    
     });
 
 app.controller("report_controller", function($scope, AuthenticationService, $http, $sce, $route,$routeParams) {
@@ -208,7 +171,7 @@ app.controller("report_controller", function($scope, AuthenticationService, $htt
       if(element == 'h1') {
 	return $sce.trustAsHtml(html_code);
       }
-      else if (html_code && html_code.length > 350) {
+      else if (html_code && html_code.length > 200) {
 	html_code = html_code.substring(0,201) + "[...]"
 	  return $sce.trustAsHtml(html_code);
       }
@@ -260,7 +223,7 @@ app.controller("detail_controller", function($scope, AuthenticationService, $rou
 var Sound_Scape;
 app.controller("map_controller", function($scope, AuthenticationService, $http) {
     $scope.report = ""
-    $scope.layers = [{id:"nature", title:"Nature Sounds"}, {id:"living_classroom", title:"Living Classroom"}, {id:"major_arizona_rivers", title:"Major Arizona Rivers"}];
+    $scope.layers = [{id:"nature", title:"Nature Sounds"}, {id:"living_classroom", title:"Living Classroom"}];
     var responsePromise = $http.get(static_data['nature_sounds'].src);
     responsePromise.success(function(data, status, headers, config) { 
       Sound_Scape = data.sound_scape;
@@ -271,20 +234,14 @@ app.controller("map_controller", function($scope, AuthenticationService, $http) 
       living_classroom = data.living_classroom;
       });
     responsePromise.error(function(data, status, headers, config) { alert("living_classroom failed.");  });
-    var responsePromise = $http.get(static_data['major_arizona_rivers'].src);
-    responsePromise.success(function(data, status, headers, config) { 
-      //      major_arizona_rivers = data.major_arizona_rivers;
-      major_arizona_rivers = data;
-      });
-    responsePromise.error(function(data, status, headers, config) { alert("major_arizona_rivers failed.");  });
 
 
     // hmmm? 
     $scope.renderHtml = function(html_code)
     {
-      return $sce.trustAsHtml(html_code);
+    return $sce.trustAsHtml(html_code);
     };
-});
+    });
 app.controller("impress_controller", function($scope, AuthenticationService) {
     //    setTimeout(  function () {app_impress()},3000);
     setTimeout(  function () { impress().init();},3000);
@@ -325,7 +282,8 @@ app.controller("Weather", function($scope, AuthenticationService, $http){
 
 function setWeather($scope, $http) {
   if (accuracy == null) {
-    //dont worry about no location
+
+    alert("For your weather forecast, please say yes to GeoLocation on your next refresh");
   }
   else
   {
