@@ -6,182 +6,209 @@ var app = angular.module("app", ['ngRoute'])
 //
 // please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
 // for documentation
-var static_data = 
-{"portfolio" : { 
+var pages= 
+[ { 
 id:"portfolio",
-   src:"./model/portfolio/portfolio.js"
-	       },
-"nature_sounds" :  {
-id:"nature_sound",
-   src:"./model/nature_sound_map.js"
+   title:"Portfolio",
+   description:"Check me out!",
+   src:"./model/portfolio/portfolio.js",
+   url:'#portfolio',
+   is_active:true,
+   templateUrl: './views/report.html',
+   controller: 'report_controller',
+   page_path:'/portfolio',
+   order: '2'
 },
-  "living_classroom" :  {
-id:"living_classroom", 
-   src:"./model/collins/living_classroom.js"
-  },
-  "home" :  {
+{
+id:"about",
+   title:'About',
+   description:'description',
+   src:"./model/about/about.js",
+   url:'#about',
+   is_active:true,
+   page_path: '/about',
+   templateUrl: './views/report.html',
+   controller: 'report_controller',
+   order:'3'
+},
+{
+id:"map",
+   title:'Map',
+   description:'Mapping data that interests me.',
+   src:"./model/projects/projects.js",
+   url:'#map',
+   controller:'map_controller',
+   is_active:true,
+   page_path:     '/map', 
+   templateUrl: './views/map.html',
+   controller: 'map_controller',
+   order:'4'
+},  
+{
+id:"chakra_form",
+   title:'Health Survey',
+   description:'Thank you for your interest in the <h3>Living Being (LB) Survey</h3>. I am collecting information about the emotional, spirtual, and physical welfare of you; soon, I will share in what I leearn from your experience.',
+   url:'#/chakra_form',
+   controller:'report_controller',
+   is_active:true,
+   page_path:'/chakra_form', 
+   templateUrl: './views/chakra_form.html',
+   order:'5'
+},
+{  
+id:"log",
+   title:'Logging',
+   description:'Log data that interests me.',
+   url:'#project_log',
+   page_path:    '/project_log', 
+   is_active:true,
+   templateUrl: './views/project_log.html',
+   controller: 'report_controller',
+   order:'99'
+} ,
+{ 
 id:"home",
-   src:"./model/home/home.js"
-  },
-  "about" :  {
-    'title':'title',
-    'description':'description',
-    id:"about",
-    src:"./model/about/about.js"
-  },
-  "projects" :  {
-    'title':'title',
-    'description':'projects im developing',
-    id:"projects",
-    src:"./model/projects/projects.js"
-  },  
-  "todo" : {
-id:"todo",
-   src:	"./model/todo.js"
-  }
+   title:"E-Ekos: An Electronic Ecosystem",
+   description:'description',
+   src:"./model/home/home.js",
+   url:'#home',
+   is_active:true,
+   templateUrl: './views/report.html',
+   controller: 'report_controller',
+   page_path: '/home',
+   order:'1'
+}, 
+{ 
+id:"politics",
+   title:"Politics",
+   description:'description',
+   src:"./model/politics/politics.js",
+   url:'#politics',
+   is_active:true,
+   templateUrl: './views/report.html',
+   controller: 'report_controller',
+   page_path: '/politics',
+   order:'6'
+},
+{ 
+id:"ion",
+   title:"Web Sampler",
+   description:'description',
+   //src:"./model/politics/politics.js",
+   url:'#ion',
+   is_active:true,
+   templateUrl: './views/ion.html',
+   controller: 'report_controller',
+   page_path: '/ion',
+   order:'6'
 }
 
-// please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
-// for documentation
-$templates = {'todo':{ name: 'todo.html', url: './views/todo.html'},
-  'weather': { name: 'weather.html', url: './views/weather.html'},
-  'presents': { name: 'presents.html', url: './views/presents.html'},
-  'clock': { name: 'template1.html', url: './views/clock.html'},
-  'todo': { name: 'todo.html', url: './views/external_links.html'},
-  'external_links': { name: 'external_links.html', url: './views/external_links.html'},
-  'navigation': { name: 'navbar.html', url: './views/navbar.html'}};
-
-// all the links in the navigation bar
-$links =[ {class:'home',data:{ name: 'Home', url: '#/home'}}
-//,{class:'impress',data:{ name: 'Impress', url: '#/impress'}}
-,{class:'portfolio',data:{ name: 'Portfolio', url: '#/portfolio'}}
-,{class:'about',data:{ name: 'About', url: '#/about'}}
-/*,{class:'data',data:{ name: 'Data', url: '#/data'}}*/
-/*,{class:'projects',data:{ name: 'Projects', url: '#/projects'}}*/
-,{class:'map',data:{ name: 'Map', url: '#map'}}
-,{class:'chakra_form',data:{ name: 'Chakra Form', url: '#/chakra_form'}}
-,{class:'project_log',data:{ name: 'Log', url: '#/project_log'}}
+/*,  
+  "login":{
+id:"login",
+title:'Login',
+description:'Login.',
+url:'#login',
+controller:'LoginController',
+templateUrl: './views/login.html',
+is_active:false,
+page_path: '/login'
+},
+"impress":{
+id:"impress",
+title:'Impress',
+description:'impress.',
+url:'#impress',
+controller:'impress_controller',
+templateUrl: './views/impress.html',
+is_active:false
+} ,
+"projects" :  {
+id:"projects",
+title:'Projects',
+description:'projects im developing',
+src:"./model/projects/projects.js",
+url:'#projects',
+controller:'report_controller',
+is_active:false,
+page_path:'/projects'
+} */
 ];
-
 // register the routes
 // // please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
 // for documentation
+//
 app.config(function($routeProvider) {
-    $routeProvider.when('/login', {
-templateUrl: './views/login.html',
-controller: 'LoginController'
+    for (var page in pages) {
+    $routeProvider.when(pages[page].page_path, {
+templateUrl: pages[page].templateUrl,
+controller: pages[page].controller
 });
-    $routeProvider.when('/impress', {
-templateUrl: './views/impress.html',
-controller: 'impress_controller'
-});
-    $routeProvider.when('/impress/:div', {
-templateUrl: './views/impress.html',
-});  
-    $routeProvider.when('/home', {
-templateUrl: './views/report.html',
-controller: 'report_controller'
-});
-    $routeProvider.when('/portfolio', {
-templateUrl: './views/report.html',
-controller: 'report_controller'
-});    
-    $routeProvider.when('/map', {
-templateUrl: './views/map.html',
-controller: 'map_controller'
-})
-$routeProvider.when('/about', {
-templateUrl: './views/report.html',
-controller: 'report_controller'
-})
-$routeProvider.when('/data', {
-templateUrl: './views/data.html',
-controller: 'report_controller'
-})
-$routeProvider.when('/chakra_form', {
-templateUrl: './views/chakra_form.html',
-controller: 'report_controller'
-})
-$routeProvider.when('/project_log', {
-templateUrl: './views/project_log.html',
-controller: 'report_controller'
-})
-$routeProvider.when('/detail?post', {
-templateUrl: './views/detail.html',
-controller: 'detail_controller'
-})
-$routeProvider.when('/detail', {
-templateUrl: './views/detail.html',
-controller: 'detail_controller'
-})
-$routeProvider.otherwise({ redirectTo: '/home' }); //can be login too!!!!!
-});
-// please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
-// for documentation
+    }     
+    $routeProvider.otherwise({ redirectTo: '/home' }); //can be login too!!!!!
+    });
+var static_data = 
+{
+  "nature_sounds" :  {
+id:"nature_sound",
+   src:"./model/nature_sound_map.js"
+  },
+  "living_classroom" :  {
+id:"living_classroom", 
+   src:"./model/collins/living_classroom.js"
+  }
+  ,
+    "major_arizona_rivers" :  {
+id:"major_arizona_rivers", 
+   src:"./model/major_arizona_rivers_wgs_84.json"
+    }
+}
+// These are all the little widgets that are used on the page !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! **********
+$templates = {'todo':{ name: 'todo.html', url: './views/templates/todo.html'},
+  'weather': { name: 'weather.html', url: './views/templates/weather.html'},
+  'presents': { name: 'presents.html', url: './views/templates/presents.html'},
+  'clock': { name: 'template1.html', url: './views/templates/clock.html'},
+  'external_links': { name: 'external_links.html', url: './views/templates/external_links.html'},
+  'navigation': { name: 'navbar.html', url: './views/navbar.html'}};
+
+//var navList = angular.module('navList', []); 
+
 app.controller("navigation", function($scope, AuthenticationService) {
-    //weather = serviceGetWeather();
-    $scope.links = $links	
-    });
-app.controller("main", function($scope, AuthenticationService, $http) {
-    $scope.templates = $templates	
-    $scope.template = $scope.templates[0];
-    var external_links = $http.get("http://www.reddit.com/user/touthowzander/liked.json");
+    $scope.links = pages; 	
 
-    external_links.success(function(data, status, headers, config) {
-      $scope.external_links = data
-      $scope.external_links.title = "Reddit Service example:";
-      });
-    external_links.error(function(data, status, headers, config) {
-      console.log("Reddit failed.");
-      });
-    });
-// please see https://docs.google.com/a/asu.edu/document/d/1SCpSwCHi4IJItPEwdrszWkv-SsKS4kcYyRhORw7N0T4/edit
-// for documentation
-var navList = angular.module('navList', []); 
+    $scope.filterFunction = function(element) {
+    console.log(element);
+    return element.is_active.match('true') ? true : false;
+    };
 
-app.controller("data_controller", function($scope, AuthenticationService, $http) {
-    $scope.templates = $templates	
-    $scope.template = $scope.templates[0];
-    $scope.report = ""
-
-    //todo 
-    /*    var responsePromise = $http.get(static_data['todo'].src);
-	  responsePromise.success(function(data, status, headers, config) {
-	  $scope.external_links = data;
-	  $scope.external_links.title = " heheheheh";
-
-	  $scope.toDo = data;  });
-	  responsePromise.error(function(data, status, headers, config) { alert("todo failed.");  });
-	  */
     });
 
 app.controller("report_controller", function($scope, AuthenticationService, $http, $sce, $route,$routeParams) {
-    if($route.current.originalPath == '/portfolio') {
-    var responsePromise = $http.get(static_data['portfolio'].src);
-    }
-    if($route.current.originalPath == '/home') {
-    var responsePromise = $http.get(static_data['home'].src);
-    }
-    if($route.current.originalPath == '/about') {
-    var responsePromise = $http.get(static_data['about'].src);
-    }
-    if($route.current.originalPath == '/projects') {
-    var responsePromise = $http.get(static_data['projects'].src);
-    }
-    if($route.current.originalPath == '/data') {
-    $scope.report = static_data;
-    }    
-    console.log('here');
+    var responsePromise;
+
+    for (page in pages) {
+    try {
+    if($route.current.originalPath == pages[page].page_path) {
+    responsePromise = $http.get(pages[page].src);
     responsePromise.success(function(data, status, headers, config) { 
       $scope.report = data;
       });
-    responsePromise.error(function(data, status, headers, config) { alert("portfolio failed.");  });
+    responsePromise.error(function(data, status, headers, config) { alert("Data Failed.");  });
+
+    }
+    }
+    catch(err) {
+    }
+    } 
+
+    //DATA BINDING!!!!
+    // special function that is available in markup to be used when databinding
     $scope.renderHtml = function(html_code, element)
     {
       if(element == 'h1') {
 	return $sce.trustAsHtml(html_code);
       }
-      else if (html_code && html_code.length > 200) {
+      else if (html_code && html_code.length > 350) {
 	html_code = html_code.substring(0,201) + "[...]"
 	  return $sce.trustAsHtml(html_code);
       }
@@ -190,7 +217,28 @@ app.controller("report_controller", function($scope, AuthenticationService, $htt
       }
     };
 
-}); 
+});
+
+app.controller("main", function($scope, AuthenticationService, $http) {
+    //add widgets
+    $scope.templates = $templates	
+    $scope.template = $scope.templates[0];
+
+    // get reddit data
+    var external_links = $http.get("http://www.reddit.com/user/touthowzander/liked.json");
+
+    // success reddit data
+    external_links.success(function(data, status, headers, config) {
+      $scope.external_links = data
+      $scope.external_links.title = "Reddit Service example:";
+      });
+    external_links.error(function(data, status, headers, config) {
+      console.log("Reddit failed.");
+      });
+    });
+
+
+
 app.controller("detail_controller", function($scope, AuthenticationService, $routeParams, $http, $route, $sce, $filter) {
     //$scope.param1 = $routeParams.param1;
     $scope.post_id = $routeParams.post;
@@ -212,7 +260,7 @@ app.controller("detail_controller", function($scope, AuthenticationService, $rou
 var Sound_Scape;
 app.controller("map_controller", function($scope, AuthenticationService, $http) {
     $scope.report = ""
-    $scope.layers = [{id:"nature", title:"Nature Sounds"}, {id:"living_classroom", title:"Living Classroom"}];
+    $scope.layers = [{id:"nature", title:"Nature Sounds"}, {id:"living_classroom", title:"Living Classroom"}, {id:"major_arizona_rivers", title:"Major Arizona Rivers"}];
     var responsePromise = $http.get(static_data['nature_sounds'].src);
     responsePromise.success(function(data, status, headers, config) { 
       Sound_Scape = data.sound_scape;
@@ -223,14 +271,20 @@ app.controller("map_controller", function($scope, AuthenticationService, $http) 
       living_classroom = data.living_classroom;
       });
     responsePromise.error(function(data, status, headers, config) { alert("living_classroom failed.");  });
+    var responsePromise = $http.get(static_data['major_arizona_rivers'].src);
+    responsePromise.success(function(data, status, headers, config) { 
+      //      major_arizona_rivers = data.major_arizona_rivers;
+      major_arizona_rivers = data;
+      });
+    responsePromise.error(function(data, status, headers, config) { alert("major_arizona_rivers failed.");  });
 
 
     // hmmm? 
     $scope.renderHtml = function(html_code)
     {
-    return $sce.trustAsHtml(html_code);
+      return $sce.trustAsHtml(html_code);
     };
-    });
+});
 app.controller("impress_controller", function($scope, AuthenticationService) {
     //    setTimeout(  function () {app_impress()},3000);
     setTimeout(  function () { impress().init();},3000);
@@ -271,8 +325,7 @@ app.controller("Weather", function($scope, AuthenticationService, $http){
 
 function setWeather($scope, $http) {
   if (accuracy == null) {
-
-    alert("For your weather forecast, please say yes to GeoLocation on your next refresh");
+    //dont worry about no location
   }
   else
   {
@@ -292,9 +345,6 @@ app.controller('navCtrl', ['$scope', '$location', function ($scope, $location) {
     $scope.navClass = function (page) {
     var currentRoute = $location.path().substring(1) || 'home';
     return page === currentRoute ? 'active' : '';
-    console.log("location " + $location);
-    console.log("current route " + currentRoute);
-    console.log("page " + page);
     };        
     }]);
 app.factory("AuthenticationService", function($location) {

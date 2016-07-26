@@ -29,7 +29,6 @@ padding:6px;
 }
 /* basic css css*/
 .navbar-brand {
-float:none;
 }
 .esriBasemapGalleryNode {
   /*
@@ -497,7 +496,7 @@ table.myWidgetTable, tr.myWidgetTable, th.myWidgetTable {
 }
 
 .ui-tabs-nav {
-  float: none !important;
+
 }
 
 .ui-widget-header {
